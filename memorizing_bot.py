@@ -38,6 +38,7 @@ def start(update, context):
     — */show\_my\_list* for showing all things in your remembering process
     '''
     update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN_V2)
+
 def start_memorizing(update, context):
     """Starts remembering process."""
     update.message.reply_text('Please, type in subject')
@@ -54,6 +55,7 @@ def set_subject(update, context):
     update.message.reply_text('Please, type in short description or\nskip it',
                               reply_markup=reply_keyboard)
     return DESCRIPTION
+
 def set_description(update, context):
     """Sets optional explanatory information and offers to save the record."""
 
@@ -71,6 +73,7 @@ def set_description(update, context):
         reply_keyboard, one_time_keyboard=True, resize_keyboard=True)
         )
     return SAVE
+
 def skip_description(update, context):
     """Offers to save the record."""
     subject = context.user_data['subject']
@@ -81,6 +84,7 @@ def skip_description(update, context):
         reply_keyboard, one_time_keyboard=True, resize_keyboard=True)
         )
     return SAVE
+
 def save(update, context):
     """Saves entry in database. Creates initial job."""
 
