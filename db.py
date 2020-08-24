@@ -42,7 +42,7 @@ def create_db():
     create_entries_table = """
     CREATE TABLE IF NOT EXISTS entries (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER NOU NULL,
+        user_id INTEGER NOT NULL,
         subject TEXT NOT NULL,
         description TEXT
     );
