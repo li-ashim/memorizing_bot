@@ -10,18 +10,18 @@ Repetition intervals:
 5) 2 weeks
 6) 4 weeks
 """
-from settings import token
 from db import create_db
 from callbacks import *
 
+from decouple import config
 from telegram.ext import (Updater, CommandHandler, MessageHandler,
         ConversationHandler, CallbackQueryHandler, Filters)
 
 
 def main():
     """Main bot function.""" 
-
-    updater = Updater(token, use_context=True)
+    BOT_TOKEN = config('BOT_TOKEN')
+    updater = Updater(BOT_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
 
     # Handlers
